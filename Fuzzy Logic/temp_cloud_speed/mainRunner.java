@@ -3,7 +3,7 @@ import java.lang.Math;
 
 public class mainRunner {
     public static void main (String[] args) {
-        double cloudcover, dom_partly, dom_sunny, dom_overcast, temp, dom_freeze, dom_cool, dom_warm, dom_hot, speed_r1, speed_r2;
+        double cloudcover, dom_partly, dom_sunny, dom_overcast, temp, dom_freeze, dom_cool, dom_warm, dom_hot, maxspeed_r1, maxspeed_r2;
         tempObj domTemp = new tempObj();
         cloudObj domCloud = new cloudObj();
         aggobj aggragate = new aggobj();
@@ -26,12 +26,12 @@ public class mainRunner {
         dom_partly = domCloud.getPartly(cloudcover);
         dom_overcast = domCloud.getOvercast(cloudcover);
 
-        speed_r1 = getR1Max(dom_warm, dom_sunny);
-        speed_r2 = getR2Max(dom_partly, dom_cool);
+        maxspeed_r1 = getR1Max(dom_warm, dom_sunny);
+        maxspeed_r2 = getR2Max(dom_partly, dom_cool);
 
 /*round to 4 decimal places*/
-        speed_r1 = Math.round(speed_r1 * 10000.0)/10000.0;
-        speed_r2 = Math.round(speed_r2 * 10000.0)/10000.0;
+        maxspeed_r1 = Math.round(maxspeed_r1 * 10000.0)/10000.0;
+        maxspeed_r2 = Math.round(maxspeed_r2 * 10000.0)/10000.0;
 
 /*        
         System.out.println("\nThe degree of membership results for a temperature of " + Math.round(temp) + "°F are:");
@@ -46,10 +46,10 @@ public class mainRunner {
         System.out.println("Partly Cloudy Weather Percentage is: " + (format(dom_partly)+"%"));
         System.out.println("Overcast Weather Percentage is: " + (format(dom_overcast)+"%") +"\n");
 */
-        System.out.println("Fast is " + speed_r1 + " with a dom_warm of " + dom_warm + ", dom_sunny of "+ dom_sunny);
-        System.out.println("Slow is " + speed_r2 + " with a dom_partly of " + dom_partly + ", dom_cool of "+ dom_cool);
+        System.out.println("Fast is " + maxspeed_r1 + " with a dom_warm of " + dom_warm + ", dom_sunny of "+ dom_sunny);
+        System.out.println("Slow is " + maxspeed_r2 + " with a dom_partly of " + dom_partly + ", dom_cool of "+ dom_cool);
 
-        aggragate.aggragate(speed_r1, speed_r2);
+        aggragate.aggragate(maxspeed_r1, maxspeed_r2);
     }
     
     /*formats double values into percentage value
