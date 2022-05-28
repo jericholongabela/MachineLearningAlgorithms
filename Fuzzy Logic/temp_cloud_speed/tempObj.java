@@ -37,9 +37,7 @@ public class tempObj {
         }else if ((temp >= 50 && temp < 70)){
             retval = (0.05 * temp) + -2.5;
         }else if ((temp >= 70 && temp < 90)) {
-            
             retval = (-0.05 * temp) + 4.5;
-            
         }
 
         return retval;

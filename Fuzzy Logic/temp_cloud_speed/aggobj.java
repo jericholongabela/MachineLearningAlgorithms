@@ -10,12 +10,6 @@ public class aggobj {
         getr1(maxr1, r1);
         getr2(maxr2, r2);
 
-        /**Display speed- r1- r2 */
-        System.out.println("Speed - R1 - R2");
-        for(int i=0;i<101;i++){
-            System.out.printf("%d - %.4f - %.4f%n", i, r1[i], r2[i]);
-        }
-
         /**aggragate array r1 and r2 by getting the max value for each array */
         for(int i=0;i<101;i++){
             if(r1[i]>r2[i]){
@@ -24,6 +18,12 @@ public class aggobj {
             else{
                 agg[i]  =r2[i];
             }
+        }
+
+        /**Display speed- r1- r2 - aggregated */
+        System.out.println("Speed \t| R1 \t\t| R2 \t\t| Aggregated");
+        for(int i=0;i<101;i++){
+            System.out.printf("%d \t| %.4f \t| %.4f \t| %.4f\n", i, r1[i], r2[i], agg[i]);
         }
 
         getcentroid(agg);
@@ -70,28 +70,24 @@ public class aggobj {
             product[i] = i * agg[i];
         }
         System.out.printf("%n%n");
-        System.out.println("Speed - Aggregate = Product");
+        System.out.println("Speed \t| Aggregated \t| Speed x Aggregated");
         for(int i=0;i<101;i++){
-            /*System.out.println(i + " - " + agg[i] + " = " + product[i]);*/
-            System.out.printf("%d - %.4f = %.4f%n", i, agg[i], product[i]);
+            System.out.printf("%d \t| %.4f \t| %.4f%n", i, agg[i], product[i]);
         }
-
-
-        /**add all the value of product and assign to sum_product */
+        
+        //add all the value of product and assign to sum_product
         for(int i=0;i<101;i++){
             sum_product += product[i];
         }
-        System.out.printf("Total Product of Speed and Aggregated R1,R2: %.4f %n", sum_product);
 
-        /**sum of aggregated r1 AND r2*/
+        //sum of aggregated r1 AND r2
         for(int i=0;i<101;i++){
             sum_agg += agg[i];
         }
-        /*System.out.println("Total Aggregated R1,R2: " +sum_agg);*/
-        System.out.printf("Total Aggregated R1,R2: %.4f %n", sum_agg);
+        System.out.printf("Total \t| %.4f \t| %.4f %n", sum_agg, sum_product);
 
-        /**compute centroid */
+        //compute centroid 
         centroid = sum_product/sum_agg;
-        System.out.printf("Centroid: %.4f %n", centroid);
+        System.out.printf("Centroid = %.4f %n", centroid);
     }
 }

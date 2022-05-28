@@ -29,7 +29,7 @@ public class mainRunner {
         maxspeed_r1 = getR1Max(dom_warm, dom_sunny);
         maxspeed_r2 = getR2Max(dom_partly, dom_cool);
 
-/*round to 4 decimal places*/
+        //round maxspeeds to 4 decimal places
         maxspeed_r1 = Math.round(maxspeed_r1 * 10000.0)/10000.0;
         maxspeed_r2 = Math.round(maxspeed_r2 * 10000.0)/10000.0;
 
@@ -46,8 +46,10 @@ public class mainRunner {
         System.out.println("Partly Cloudy Weather Percentage is: " + (format(dom_partly)+"%"));
         System.out.println("Overcast Weather Percentage is: " + (format(dom_overcast)+"%") +"\n");
 */
-        System.out.println("Fast is " + maxspeed_r1 + " with a dom_warm of " + dom_warm + ", dom_sunny of "+ dom_sunny);
-        System.out.println("Slow is " + maxspeed_r2 + " with a dom_partly of " + dom_partly + ", dom_cool of "+ dom_cool);
+        System.out.println("DOM: \t| Warm \t| Sunny | Cool \t| Cloudy");
+        System.out.printf("\t| %.2f \t| %.2f \t| %.2f \t| %.2f \n\n", dom_warm, dom_sunny, dom_cool, dom_partly);
+        System.out.println("Maximum Fast is " + maxspeed_r1 + " with a dom_warm of " + dom_warm + ", dom_sunny of "+ dom_sunny);
+        System.out.println("Maximum Slow is " + maxspeed_r2 + " with a dom_partly of " + dom_partly + ", dom_cool of "+ dom_cool +"\n");
 
         aggragate.aggragate(maxspeed_r1, maxspeed_r2);
     }
