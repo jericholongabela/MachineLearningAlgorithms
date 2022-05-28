@@ -37,7 +37,7 @@ public class aggobj {
             }
             else{
                 r1[i] = 0.02 * i + -0.5; /*multiple by the linear equation of fast */
-                if(r1[i]>maxr1){    /*if value exceed 0.75, it will clip it to 0.75 */
+                if(r1[i]>maxr1){    /*if value exceed 0.5, it will clip it to 0.5 */
                     r1[i] = maxr1;
                 }
             }
@@ -79,13 +79,13 @@ public class aggobj {
 
         /**add all the value of product and assign to sum_product */
         for(int i=0;i<101;i++){
-            sum_product = sum_product + product[i];
+            sum_product += product[i];
         }
         System.out.printf("Total Product of Speed and Aggregated R1,R2: %.4f %n", sum_product);
 
         /**sum of aggregated r1 AND r2*/
         for(int i=0;i<101;i++){
-            sum_agg = sum_agg + agg[i];
+            sum_agg += agg[i];
         }
         /*System.out.println("Total Aggregated R1,R2: " +sum_agg);*/
         System.out.printf("Total Aggregated R1,R2: %.4f %n", sum_agg);
